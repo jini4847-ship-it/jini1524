@@ -11,19 +11,39 @@ etfs = {
 }
 
 def build_message():
-    msg = "[연금저축 ETF 알림]\n\n"
+    msg = "📊 [연금저축 ETF 데일리 리포트]\n\n"
+    msg += "🕙 기준: 자동 업데이트\n\n"
+    msg += "━━━━━━━━━━━━━━\n\n"
+    msg += "🔥 MARKET SNAPSHOT\n\n"
 
     for name, ticker in etfs.items():
         price, change, pct = get_etf(ticker)
 
-        arrow = "🔥" if pct < -2 else ""
+        if price is None:
+            continue
 
-        msg += f"{name}\n현재가: {price:.2f}\n변동: {pct:+.2f}% ({change:+.2f}) {arrow}\n\n"
+        emoji = "📉" if pct < 0 else "📈"
+        hot = "🔥" if pct < -2 else ""
 
-    msg += "추천\n- 나스닥 20만원\n- 반도체 30만원"
+        msg += f"{name} {hot}\n"
+        msg += f"💰 현재가: {price}\n"
+        msg += f"{emoji} 변동: {pct:+.2f}% ({change:+.2f})\n\n"
+
+    msg += "━━━━━━━━━━━━━━\n\n"
+    msg += "🧠 투자 전략\n\n"
+    msg += "✔ 나스닥 조정 구간 → 분할매수 고려\n"
+    msg += "✔ 반도체 과매도 구간\n"
+    msg += "✔ 금: 방어 자산 유지\n\n"
+
+    msg += "━━━━━━━━━━━━━━\n\n"
+    msg += "💡 추천 매수\n\n"
+    msg += "- 나스닥100 : 20만원\n"
+    msg += "- 반도체 : 30만원\n\n"
+
+    msg += "━━━━━━━━━━━━━━\n"
+    msg += "📌 자동 알림 시스템"
 
     return msg
-
 
 def run():
     message = build_message()
