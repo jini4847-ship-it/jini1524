@@ -1,7 +1,7 @@
 import yfinance as yf
 
 def get_etf(ticker):
-    hist = yf.Ticker(ticker).history(period="2d")
+    hist = yf.Ticker(ticker).history(period="5d")
 
     today = hist["Close"].iloc[-1]
     prev = hist["Close"].iloc[-2]
