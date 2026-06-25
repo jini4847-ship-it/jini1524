@@ -2,12 +2,12 @@ from etf import get_etf
 from kakao import send_kakao
 
 etfs = {
-    "TIGER 미국S&P500": "SPY",
-    "KODEX 미국나스닥100": "QQQ",
-    "TIGER 미국필라델피아반도체": "SOXX",
-    "ACE KRX금현물": "GLD",
-    "TIGER 미국배당다우존스": "SCHD",
-    "ACE 미국배당퀄리티": "DGRO"
+    "TIGER 미국S&P500": "360750.KS",
+    "KODEX 미국나스닥100": "379800.KS",
+    "TIGER 미국필라델피아반도체": "381180.KS",
+    "ACE KRX금현물": "411060.KS",
+    "TIGER 미국배당다우존스": "458730.KS",
+    "ACE 미국배당퀄리티": "441640.KS"
 }
 
 def build_message():
