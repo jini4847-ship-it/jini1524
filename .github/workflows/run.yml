@@ -16,3 +16,7 @@ jobs:
           python-version: "3.10"
       - run: pip install -r requirements.txt
       - run: python main.py
+  env:
+    REST_API_KEY: ${{ secrets.REST_API_KEY }}
+    CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+    REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
