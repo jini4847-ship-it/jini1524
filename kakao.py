@@ -1,13 +1,15 @@
 import requests
 import json
-from config import ACCESS_TOKEN
+from refresh import get_access_token
 
 def send_kakao(message):
     url = "https://kapi.kakao.com/v2/api/talk/memo/default/send"
 
-    headers = {
-        "Authorization": f"Bearer {ACCESS_TOKEN}"
-    }
+    access_token = get_access_token()
+
+headers = {
+    "Authorization": f"Bearer {access_token}"
+}
 
     data = {
         "template_object": json.dumps({
