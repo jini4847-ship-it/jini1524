@@ -7,9 +7,9 @@ def send_kakao(message):
 
     access_token = get_access_token()
 
-headers = {
-    "Authorization": f"Bearer {access_token}"
-}
+    headers = {
+        "Authorization": f"Bearer {access_token}"
+    }
 
     data = {
         "template_object": json.dumps({
