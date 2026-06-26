@@ -1,5 +1,5 @@
 import requests
-from config import REST_API_KEY, REFRESH_TOKEN
+from config import REST_API_KEY, REFRESH_TOKEN, CLIENT_SECRET
 
 def get_access_token():
     url = "https://kauth.kakao.com/oauth/token"
