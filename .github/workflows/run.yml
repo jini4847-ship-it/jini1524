@@ -3,20 +3,24 @@ name: etf-bot
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 1 * * *"   # 한국 10시
-    - cron: "0 5 * * *"   # 한국 14시
+    - cron: "7 1 * * *"
+    - cron: "7 5 * * *"
 
 jobs:
   run:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
         with:
-          python-version: "3.10"
+          python-version: "3.12"
+
       - run: pip install -r requirements.txt
+
       - run: python main.py
-  env:
-    REST_API_KEY: ${{ secrets.REST_API_KEY }}
-    CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
-    REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
+        env:
+          REST_API_KEY: ${{ secrets.REST_API_KEY }}
+          CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+          REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
