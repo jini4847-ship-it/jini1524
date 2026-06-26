@@ -3,8 +3,8 @@ name: etf-bot
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 1 * * *"   # 한국 10시
-    - cron: "0 5 * * *"   # 한국 14시
+    - cron: "*/15****"   # 한국 10시
+    - cron: "05***"   # 한국 14시
 
 jobs:
   run:
