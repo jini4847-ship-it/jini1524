@@ -13,4 +13,9 @@ def get_access_token():
     response = requests.post(url, data=data)
     result = response.json()
 
+    print("토큰 응답:", result)   # ← 이 줄 추가
+
+    if "access_token" not in result:
+        raise Exception(f"토큰 갱신 실패: {result}")
+
     return result["access_token"]
