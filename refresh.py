@@ -1,7 +1,7 @@
 import requests
 from config import REST_API_KEY, REFRESH_TOKEN
 
-def refresh_access_token():
+def get_access_token():
     url = "https://kauth.kakao.com/oauth/token"
 
     data = {
@@ -11,4 +11,6 @@ def refresh_access_token():
     }
 
     response = requests.post(url, data=data)
-    return response.json()
+    result = response.json()
+
+    return result["access_token"]
