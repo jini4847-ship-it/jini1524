@@ -19,4 +19,7 @@ def send_kakao(message):
         })
     }
 
-    requests.post(url, headers=headers, data=data)
+    response = requests.post(url, headers=headers, data=data)
+
+    print("상태코드:", response.status_code)
+    print("응답:", response.text)
