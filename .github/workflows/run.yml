@@ -3,7 +3,7 @@ name: etf-bot
 on:
   workflow_dispatch:
   schedule:
-    - cron: "40 6 * * *"
+    - cron: '40 6 * * *'
 
 jobs:
   run:
@@ -14,11 +14,12 @@ jobs:
 
       - uses: actions/setup-python@v5
         with:
-          python-version: "3.12"
+          python-version: '3.12'
 
       - run: pip install -r requirements.txt
 
-      - run: python main.py
+      - name: Run ETF Bot
+        run: python main.py
         env:
           REST_API_KEY: ${{ secrets.REST_API_KEY }}
           CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
