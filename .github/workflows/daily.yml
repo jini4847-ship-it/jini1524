@@ -1,12 +1,15 @@
 name: Daily Test
 
 on:
-  schedule:
-    - cron: '45 6 * * *'
   workflow_dispatch:
+
+  schedule:
+    - cron: '*/5 * * * *'
 
 jobs:
   test:
     runs-on: ubuntu-latest
+
     steps:
-      - run: echo "Hello"
+      - name: Test
+        run: echo "Hello $(date)"
